@@ -1,0 +1,24 @@
+<h1>All Stores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Rating</th>
+      <th>My Rating</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= store.name %></td>
+        <td><%= store.address %></td>
+        <td><%= store.ratings.average(:value).round(1) %></td>
+        <td><%= current_user.ratings.find_by(store_id: store.id)&.value || "Not rated" %></td>
+        <td><%= link_to 'Rate Store', new_rating_path(store_id: store.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
