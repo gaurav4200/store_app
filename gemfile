@@ -1,0 +1,5 @@
+gem 'rails', '~> 7.0.0'
+gem 'devise'
+gem 'bootstrap', '~> 5.2'
+gem 'mysql2' # Or 'pg' for PostgreSQL
+gem 'pundit' # For authorization
